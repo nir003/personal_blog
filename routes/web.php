@@ -11,6 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Schema::defaultStringLength(191);
+
+Route::get('/','PageController@getIndex');
+
+Route::get('about','PageController@getAbout' );
+Route::get('contact','PageController@getContact');
+
+
+
+
+
+/*it can manage all the methods from controller*/
+Route::resource('posts','PostController');
+
+
