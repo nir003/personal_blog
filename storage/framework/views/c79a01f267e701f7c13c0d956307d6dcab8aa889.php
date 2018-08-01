@@ -1,13 +1,22 @@
-@extends('main')
-@section('title','All Posts')
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Nirjhor
+ * Date: 7/29/2018
+ * Time: 5:28 AM
+ */
+?>
 
-@section('content')
+
+<?php $__env->startSection('title','All Posts'); ?>
+
+<?php $__env->startSection('content'); ?>
     <div class="row">
         <div class="col-md-9">
             <h1>All posts</h1>
         </div>
         <div class="col-md-2">
-            <a href="{{url('posts/create')}}" class="btn btn-block btn-lg btn-primary">Create new post</a>
+            <a href="<?php echo e(url('posts/create')); ?>" class="btn btn-block btn-lg btn-primary">Create new post</a>
         </div>
 
     </div>
@@ -26,23 +35,21 @@
                 <th>Title</th>
                 <th>Post Body</th>
                 <th>Created at</th>
-                <th>Category</th>
                 <th></th>
                 </thead>
-                @foreach($posts as $post)
+                <?php $__currentLoopData = $categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categorie): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tbody>
-                    <td>{{$post->id}}</td>
-                    <td>{{$post->title}}</td>
-                    <td>{{$post->body}}</td>
-                    <td>{{$post->created_at}}</td>
-                    <td>{{$post->category->category_name}}</td>
+                    <td><?php echo e($categorie->id); ?></td>
+                    <td><?php echo e($categorie->category_name); ?></td>
+
+                    <td><?php echo e($categorie->created_at); ?></td>
                     <td>
                         <a href="" class="btn btn-default">View</a>
                         <a href="" class="btn btn-primary">Edit</a>
                     </td>
                     </tbody>
 
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </table>
 
 
@@ -55,7 +62,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-6">
                 <div class="text-center">
-                    {!! $posts->links() !!} //pagination
+                    <?php echo $categories->links(); ?> 
                 </div>
             </div>
         </div>
@@ -68,4 +75,6 @@
 
 
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -22,6 +22,11 @@ Route::get('contact','PageController@getContact');
 
 
 
+
+
+Route::get('categories','PostController@getCategory');
+
+
 /*it can manage all the methods from controller*/
 Route::resource('posts','PostController');
 

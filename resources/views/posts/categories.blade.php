@@ -1,3 +1,12 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Nirjhor
+ * Date: 7/29/2018
+ * Time: 5:28 AM
+ */
+?>
+
 @extends('main')
 @section('title','All Posts')
 
@@ -26,16 +35,14 @@
                 <th>Title</th>
                 <th>Post Body</th>
                 <th>Created at</th>
-                <th>Category</th>
                 <th></th>
                 </thead>
-                @foreach($posts as $post)
+                @foreach($categories as $categorie)
                     <tbody>
-                    <td>{{$post->id}}</td>
-                    <td>{{$post->title}}</td>
-                    <td>{{$post->body}}</td>
-                    <td>{{$post->created_at}}</td>
-                    <td>{{$post->category->category_name}}</td>
+                    <td>{{$categorie->id}}</td>
+                    <td>{{$categorie->category_name}}</td>
+
+                    <td>{{$categorie->created_at}}</td>
                     <td>
                         <a href="" class="btn btn-default">View</a>
                         <a href="" class="btn btn-primary">Edit</a>
@@ -55,7 +62,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-6">
                 <div class="text-center">
-                    {!! $posts->links() !!} //pagination
+                    {!! $categories->links() !!} {{--pagination--}}
                 </div>
             </div>
         </div>

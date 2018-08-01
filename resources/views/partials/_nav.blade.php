@@ -33,6 +33,9 @@
                 <li class="nav-item {{Request::is('posts') ? "active" : ""}}">
                     <a class="nav-link" href="{{url('posts')}}">All Post</a>
                 </li>
+                <li class="nav-item {{Request::is('categories') ? "active" : ""}}">
+                    <a class="nav-link" href="{{url('categories')}}">All Post</a>
+                </li>
             </ul>
 
             <ul class="navbar-nav">

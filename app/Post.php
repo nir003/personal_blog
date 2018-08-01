@@ -8,4 +8,11 @@ class Post extends Model
 {
     //
 
+    public function category(){
+        //many posts belongs to one category so
+        return $this->belongsTo('App\Category');
+    }
+
+
+
 }

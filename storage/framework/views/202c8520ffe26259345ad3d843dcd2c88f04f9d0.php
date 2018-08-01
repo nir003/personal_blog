@@ -25,6 +25,7 @@
                 <th>Title</th>
                 <th>Post Body</th>
                 <th>Created at</th>
+                <th>Category</th>
                 <th></th>
                 </thead>
                 <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
@@ -33,6 +34,7 @@
                     <td><?php echo e($post->title); ?></td>
                     <td><?php echo e($post->body); ?></td>
                     <td><?php echo e($post->created_at); ?></td>
+                    <td><?php echo e($post->category->category_name); ?></td>
                     <td>
                         <a href="" class="btn btn-default">View</a>
                         <a href="" class="btn btn-primary">Edit</a>
@@ -52,8 +54,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-6">
                 <div class="text-center">
-                    <?php echo $posts->links(); ?>
-
+                    <?php echo $posts->links(); ?> //pagination
                 </div>
             </div>
         </div>

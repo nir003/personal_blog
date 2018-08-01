@@ -33,6 +33,9 @@
                 <li class="nav-item <?php echo e(Request::is('posts') ? "active" : ""); ?>">
                     <a class="nav-link" href="<?php echo e(url('posts')); ?>">All Post</a>
                 </li>
+                <li class="nav-item <?php echo e(Request::is('categories') ? "active" : ""); ?>">
+                    <a class="nav-link" href="<?php echo e(url('categories')); ?>">All Post</a>
+                </li>
             </ul>
 
             <ul class="navbar-nav">

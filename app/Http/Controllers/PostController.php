@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\category;
 use App\Post;
 use Illuminate\Http\Request;
 
@@ -19,6 +20,13 @@ class PostController extends Controller
 
         return view('posts.index')
             ->with('posts',$posts);
+    }
+
+    public function getCategory(){
+        $categories = Category::paginate(2);
+
+        return view('posts.categories')
+            ->with('categories',$categories);
     }
 
     /**
@@ -104,4 +112,6 @@ class PostController extends Controller
     {
         //
     }
+
+
 }
